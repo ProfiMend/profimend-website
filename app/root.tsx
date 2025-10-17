@@ -8,6 +8,8 @@ import {
 import type { LinksFunction } from "@remix-run/node";
 
 import styles from "~/styles/tailwind.css?url";
+import { motion } from "framer-motion";
+import { DollarSign, BarChart3, Calculator } from "lucide-react";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
