@@ -34,7 +34,8 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body <div className="min-h-screen bg-white text-gray-800">
+      <body>
+  <div className="min-h-screen bg-white text-gray-800">
   <header className="w-full">
     <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
       <div className="text-2xl font-bold text-blue-700">ProfiMend</div>
