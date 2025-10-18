@@ -107,6 +107,7 @@ export default function App() {
     <p className="text-sm">© {new Date().getFullYear()} ProfiMend. All rights reserved.</p>
   </footer>
 </div>
+        <Outlet />
       </body>
     </html>
   );
