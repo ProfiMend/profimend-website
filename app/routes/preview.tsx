@@ -54,50 +54,88 @@ export default function PreviewPage() {
 }
 
 /* ---------------- HOME (Long) ---------------- */
-function HomeLong() {
+function HomeLong(){
   return (
-    <div className="space-y-16">
-      {/* HERO */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 text-white">
-        <div className="absolute -top-16 -right-16 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
-        <div className="max-w-5xl mx-auto px-8 py-20 text-center">
-          <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-            className="text-4xl md:text-6xl font-extrabold tracking-tight">
-            Confident Money Decisions for Small Businesses
+    <div className="space-y-20">
+      {/* HERO — animated gradient + floating orbs */}
+      <section className="relative overflow-hidden rounded-3xl text-white">
+        {/* animated gradient bg */}
+        <div className="absolute inset-0 -z-10 animate-[pulse_12s_ease-in-out_infinite] bg-[radial-gradient(1200px_600px_at_20%_-20%,#2563eb_0%,transparent_60%),radial-gradient(900px_500px_at_120%_20%,#10b981_0%,transparent_55%),linear-gradient(120deg,#2563eb_0%,#3b82f6_40%,#22c55e_90%)] opacity-90" />
+        {/* floating blobs */}
+        <div className="absolute -top-32 -right-24 w-[420px] h-[420px] rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute -bottom-40 -left-24 w-[380px] h-[380px] rounded-full bg-white/10 blur-3xl" />
+
+        <div className="max-w-6xl mx-auto px-8 py-24 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
+            className="text-5xl md:text-6xl font-extrabold tracking-tight"
+          >
+            Make Confident Money Moves
           </motion.h1>
-          <p className="mt-4 text-lg opacity-95 max-w-3xl mx-auto">
-            Price smarter, forecast cash with clarity, and track budget vs. actuals in one modern workspace.
-          </p>
-          <div className="mt-8 flex items-center justify-center gap-4">
-            <a href="#" className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-2xl shadow">
-              Get Started Free <ArrowRight className="w-4 h-4" />
+          <motion.p
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15, duration: 0.6 }}
+            className="mt-4 text-lg md:text-xl max-w-3xl mx-auto opacity-95"
+          >
+            Price smarter, forecast cash with clarity, and track budget vs. actuals — in a fast, modern dashboard.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.5 }}
+            className="mt-8 flex items-center justify-center gap-4"
+          >
+            <a href="#" className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-7 py-3 rounded-2xl shadow">
+              Get Started Free
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/></svg>
             </a>
-            <a href="#features" className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-white/10 border border-white/20 hover:bg-white/20">
+            <a href="#tour" className="inline-flex items-center gap-2 px-7 py-3 rounded-2xl bg-white/10 border border-white/20 hover:bg-white/20">
               See how it works
             </a>
-          </div>
-          <div className="mt-6 flex items-center justify-center gap-6 text-sm opacity-90">
-            <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4" /> SSL • Privacy-first</div>
-            <div className="flex items-center gap-2"><Users className="w-4 h-4" /> Built for SMBs</div>
-            <div className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> AI-backed insights</div>
+          </motion.div>
+
+          {/* animated counters */}
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-left md:text-center">
+            {[
+              {label: "Avg setup time", value: "12 min"},
+              {label: "Pilot satisfaction", value: "97%"},
+              {label: "Reports created", value: "10k+"},
+            ].map((s, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                transition={{ delay: 0.1 * i, duration: 0.5 }}
+                className="backdrop-blur rounded-2xl bg-white/10 border border-white/20 p-5"
+              >
+                <div className="text-3xl md:text-4xl font-extrabold">{s.value}</div>
+                <div className="opacity-90">{s.label}</div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* FEATURE STRIP */}
-      <section id="features" className="grid md:grid-cols-3 gap-6">
-        <FeatureCard color="border-blue-500" icon={<DollarSign className="w-10 h-10 text-blue-500" />} title="Smart Pricing" desc="Cost + competitor-aware pricing with margin targets." />
-        <FeatureCard color="border-orange-500" icon={<BarChart3 className="w-10 h-10 text-orange-500" />} title="Cash Flow" desc="Daily/weekly balance projections with alerts." />
-        <FeatureCard color="border-green-500" icon={<Calculator className="w-10 h-10 text-green-500" />} title="Budget vs Actuals" desc="Variance analysis with category drilldowns." />
+      {/* MARQUEE — trusted by … */}
+      <section className="rounded-2xl border border-slate-200 p-0 overflow-hidden">
+        <div className="px-6 pt-6 text-center text-sm text-slate-500">Trusted by owners across retail, services, and e-commerce</div>
+        <div className="relative mt-4 h-16">
+          <div className="absolute inset-0 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="flex items-center gap-12 animate-[marquee_18s_linear_infinite] px-6">
+              {Array.from({length:12}).map((_,i)=>(
+                <div key={i} className="w-28 h-8 rounded bg-slate-100" />
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* TOUR */}
-      <section className="grid md:grid-cols-2 gap-10 items-center">
+      {/* TOUR — with id for the link */}
+      <section id="tour" className="grid md:grid-cols-2 gap-10 items-center">
         <div className="space-y-4">
           <h2 className="text-3xl font-bold text-blue-700">A quick tour</h2>
-          <ListItem text="Enter costs & goals — get your price and margin instantly" />
-          <ListItem text="Import CSVs; see cash runway and burn" />
-          <ListItem text="Spot variances in seconds with clean visuals" />
+          <div className="space-y-2 text-slate-700">
+            <div className="flex items-start gap-3"><span className="w-2.5 h-2.5 mt-2 rounded-full bg-green-500" />Enter costs & goals — get price + margin instantly</div>
+            <div className="flex items-start gap-3"><span className="w-2.5 h-2.5 mt-2 rounded-full bg-green-500" />Import CSVs; see cash runway & alerts</div>
+            <div className="flex items-start gap-3"><span className="w-2.5 h-2.5 mt-2 rounded-full bg-green-500" />Spot variances in seconds with clean visuals</div>
+          </div>
           <div className="flex gap-3">
             <a className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl" href="#">Try a demo</a>
             <a className="px-5 py-3 rounded-xl border border-slate-300" href="#">Download sample CSV</a>
@@ -110,34 +148,21 @@ function HomeLong() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="space-y-6">
-        <h2 className="text-3xl font-bold text-blue-700 text-center">Owners who switched to clarity</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            { name: "Lina, Café owner", quote: "Forecasting cash weekly saved us two costly surprises." },
-            { name: "Raman, HVAC", quote: "Pricing tool removed guesswork—margins finally stabilized." },
-            { name: "Tia, e-com", quote: "I can explain numbers to my team in 5 minutes now." },
-          ].map((t, i) => (
-            <div key={i} className="rounded-2xl border border-slate-200 p-6 shadow-sm">
-              <div className="flex items-center gap-2 text-blue-600">
-                <Star className="w-4 h-4" /><Star className="w-4 h-4" /><Star className="w-4 h-4" /><Star className="w-4 h-4" /><Star className="w-4 h-4" />
-              </div>
-              <p className="mt-3 text-slate-700">“{t.quote}”</p>
-              <p className="mt-2 text-sm text-slate-500">{t.name}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="text-center rounded-3xl bg-blue-50 p-10">
         <h3 className="text-2xl font-bold text-blue-700">Ready to try ProfiMend?</h3>
         <p className="text-slate-600 mt-2">Spin up a demo in minutes — connect your data later.</p>
         <a className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-2xl mt-4" href="#">
-          Create Free Account <ArrowRight className="w-4 h-4" />
+          Create Free Account
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/></svg>
         </a>
       </section>
+
+      {/* keyframes */}
+      <style>{`
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+      `}</style>
     </div>
   );
 }
