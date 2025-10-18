@@ -63,25 +63,25 @@ export default function App() {
     </a>
   </section>
 
-  <section id="features" className="py-20 max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-    <div className="shadow-lg border-t-4 border-blue-500 rounded-xl p-6 text-center">
+  <section id="features" className="py-24 max-w-7xl mx-auto px-8 grid md:grid-cols-3 gap-10">
+  <div className="shadow-xl border-t-4 border-blue-500 rounded-2xl p-10 text-center scale-105 transition-transform hover:scale-110">
       <DollarSign className="w-10 h-10 mx-auto text-blue-500 mb-4" />
-      <h3 className="font-semibold text-xl mb-2">Pricing Tool</h3>
-      <p>
+      <h3 className="font-semibold text-2xl mb-3">Pricing Tool</h3>
+      <p className="text-lg leading-relaxed">
         Find your perfect price point based on fixed and variable costs, break-even, and competition.
       </p>
     </div>
 
     <div className="shadow-lg border-t-4 border-orange-500 rounded-xl p-6 text-center">
       <BarChart3 className="w-10 h-10 mx-auto text-orange-500 mb-4" />
-      <h3 className="font-semibold text-xl mb-2">Cash Flow Forecast</h3>
-      <p>Track inflows and outflows, predict balance shortfalls, and visualize your financial future.</p>
+      <h3 className="font-semibold text-2xl mb-3">Cash Flow Forecast</h3>
+      <p className="text-lg leading-relaxed">Track inflows and outflows, predict balance shortfalls, and visualize your financial future.</p>
     </div>
 
     <div className="shadow-lg border-t-4 border-blue-400 rounded-xl p-6 text-center">
       <Calculator className="w-10 h-10 mx-auto text-blue-400 mb-4" />
-      <h3 className="font-semibold text-xl mb-2">Budget vs Actuals</h3>
-      <p>Compare your goals and performance, and identify improvement areas in real time.</p>
+      <h3 className="font-semibold text-2xl mb-3">Budget vs Actuals</h3>
+      <p className="text-lg leading-relaxed">Compare your goals and performance, and identify improvement areas in real time.</p>
     </div>
   </section>
 
