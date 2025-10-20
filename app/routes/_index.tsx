@@ -13,10 +13,11 @@ import {
   Star,
   Quote,
 } from "lucide-react";
+import ClientOnly from "~/components/ClientOnly";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "~/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent, useBindTabs } from "~/components/ui/tabs";
 import {
   AreaChart,
   Area,
