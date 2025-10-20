@@ -251,7 +251,9 @@ function FloatingHero() {
             <FloatingCard>
               <div className="p-4">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground"><TrendingUp className="h-4 w-4 text-sky-600"/> Cash Projection</div>
-                <div className="mt-2"><MiniChart /></div>
+                <div className="mt-2"><ClientOnly>
+  <MiniChart />
+</ClientOnly></div>
               </div>
             </FloatingCard>
           </motion.div>
@@ -326,7 +328,9 @@ function ToolSwitcher() {
           <TabsContent value="pricing" className="mt-4">
             <div className="grid md:grid-cols-2 gap-4">
               <MiniPricingCalculator />
-              <MiniChart />
+              <ClientOnly>
+  <MiniChart />
+</ClientOnly>
             </div>
           </TabsContent>
           <TabsContent value="cashflow" className="mt-4">
@@ -335,7 +339,9 @@ function ToolSwitcher() {
               <KPI title="Runway" value="7.2 mo" />
               <KPI title="Alerts" value="None" />
             </div>
-            <div className="mt-4"><MiniChart /></div>
+            <div className="mt-4"><ClientOnly>
+  <MiniChart />
+</ClientOnly></div>
           </TabsContent>
           <TabsContent value="bva" className="mt-4">
             <div className="grid md:grid-cols-2 gap-4">
