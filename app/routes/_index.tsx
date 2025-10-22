@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState,useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
@@ -309,8 +309,10 @@ function FeatureRow() {
   );
 }
 
-function ToolSwitcher() {
+function ToolSwitcher() {  
   const [tab, setTab] = useState("pricing");
+  const tabsRef = React.useRef<HTMLDivElement>(null);
+  useBindTabs(tabsRef, setTab);
   return (
     <Card className="w-full shadow-sm border-muted bg-white/70 backdrop-blur">
       <CardHeader className="pb-2">
@@ -319,37 +321,50 @@ function ToolSwitcher() {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <Tabs value={tab} onValueChange={setTab} className="w-full">
-          <TabsList className="grid grid-cols-3">
-            <TabsTrigger value="pricing">Pricing</TabsTrigger>
-            <TabsTrigger value="cashflow">Cash Flow</TabsTrigger>
-            <TabsTrigger value="bva">Budget vs Actuals</TabsTrigger>
-          </TabsList>
-          <TabsContent value="pricing" className="mt-4">
-            <div className="grid md:grid-cols-2 gap-4">
-              <MiniPricingCalculator />
-              <ClientOnly>
-  <MiniChart />
-</ClientOnly>
-            </div>
-          </TabsContent>
-          <TabsContent value="cashflow" className="mt-4">
-            <div className="grid md:grid-cols-3 gap-4">
-              <KPI title="Current Cash" value="$42,880" trend="↑ 12%" />
-              <KPI title="Runway" value="7.2 mo" />
-              <KPI title="Alerts" value="None" />
-            </div>
-            <div className="mt-4"><ClientOnly>
-  <MiniChart />
-</ClientOnly></div>
-          </TabsContent>
-          <TabsContent value="bva" className="mt-4">
-            <div className="grid md:grid-cols-2 gap-4">
-              <DiffCard label="Revenue" actual={128400} budget={120000} />
-              <DiffCard label="Expenses" actual={74900} budget={78500} invert />
-            </div>
-          </TabsContent>
-        </Tabs>
+        <div ref={tabsRef}>
+  <Tabs value={tab} onValueChange={setTab} className="w-full">
+    <TabsList className="grid grid-cols-3">
+      <TabsTrigger value="pricing">Pricing</TabsTrigger>
+      <TabsTrigger value="cashflow">Cash Flow</TabsTrigger>
+      <TabsTrigger value="bva">Budget vs Actuals</TabsTrigger>
+    </TabsList>
+
+    {tab === "pricing" && (
+      <TabsContent value="pricing" className="mt-4">
+        <div className="grid md:grid-cols-2 gap-4">
+          <MiniPricingCalculator />
+          <ClientOnly>
+            <MiniChart />
+          </ClientOnly>
+        </div>
+      </TabsContent>
+    )}
+
+    {tab === "cashflow" && (
+      <TabsContent value="cashflow" className="mt-4">
+        <div className="grid md:grid-cols-3 gap-4">
+          <KPI title="Current Cash" value="$42,880" trend="↑ 12%" />
+          <KPI title="Runway" value="7.2 mo" />
+          <KPI title="Alerts" value="None" />
+        </div>
+        <div className="mt-4">
+          <ClientOnly>
+            <MiniChart />
+          </ClientOnly>
+        </div>
+      </TabsContent>
+    )}
+
+    {tab === "bva" && (
+      <TabsContent value="bva" className="mt-4">
+        <div className="grid md:grid-cols-2 gap-4">
+          <DiffCard label="Revenue" actual={128400} budget={120000} />
+          <DiffCard label="Expenses" actual={74900} budget={78500} invert />
+        </div>
+      </TabsContent>
+    )}
+  </Tabs>
+</div>
       </CardContent>
     </Card>
   );
