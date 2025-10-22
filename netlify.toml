@@ -3,4 +3,5 @@
   publish = "build/client"
 
 [functions]
-  directory = ".netlify/functions"
+  directory = ".netlify/functions-internal"
+
