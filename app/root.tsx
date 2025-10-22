@@ -109,6 +109,8 @@ export default function App() {
   </footer>
 </div>
         <Outlet />
+        <ScrollRestoration />
+        <Scripts />     
       </body>
     </html>
   );
