@@ -2,8 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
-/* brand helpers */
-.profimend-header-gradient { background: linear-gradient(90deg, #0284c7 0%, #f97316 100%); }
-.profimend-cta-gradient { background: linear-gradient(135deg, #0284c7 0%, #10b981 100%); }
 
 
