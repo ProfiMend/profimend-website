@@ -2,10 +2,4 @@
 @tailwind components;
 @tailwind utilities;
 
-/* optional typography plugin */
-@layer components {
-  .prose img {
-    @apply border rounded-md border-slate-200;
-  }
-}
 
