@@ -1,38 +1,73 @@
-import { createRequestHandler } from "@netlify/remix-adapter";
+// netlify/functions/server.mjs
+import { createRequestHandler as createRemixHandler } from "@remix-run/node";
 import * as build from "../../build/server/index.js";
 
-// helper to build a query string if Netlify didn't give us rawUrl
-function toQueryString(params) {
-  if (!params) return "";
-  const usp = new URLSearchParams(params);
-  const s = usp.toString();
-  return s ? `?${s}` : "";
+// Build a proper absolute URL from event pieces
+function buildAbsoluteUrl(event) {
+  const proto =
+    event.headers?.["x-forwarded-proto"] ||
+    event.headers?.["x-forwarded-protocol"] ||
+    "https";
+
+  const host =
+    event.headers?.["x-forwarded-host"] ||
+    event.headers?.host;
+
+  // rawQuery is present in some envs; otherwise use queryStringParameters
+  let query = "";
+  if (typeof event.rawQuery === "string" && event.rawQuery.length) {
+    query = `?${event.rawQuery}`;
+  } else if (event.queryStringParameters) {
+    const usp = new URLSearchParams(event.queryStringParameters);
+    const s = usp.toString();
+    if (s) query = `?${s}`;
+  }
+
+  const path = event.path || "/";
+  return `${proto}://${host}${path}${query}`;
 }
 
-export const handler = async (event, context) => {
+const remixHandler = createRemixHandler(build, process.env.NODE_ENV);
+
+export const handler = async (event /*, context */) => {
   try {
-    // Ensure event.rawUrl exists (some environments don't send it)
-    const proto =
-      event.headers?.["x-forwarded-proto"] ||
-      event.headers?.["x-forwarded-protocol"] ||
-      "https";
+    const url = buildAbsoluteUrl(event);
 
-    const host =
-      event.headers?.["x-forwarded-host"] ||
-      event.headers?.host;
+    // Headers -> Fetch Headers
+    const headers = new Headers();
+    for (const [k, v] of Object.entries(event.headers || {})) {
+      if (typeof v === "string") headers.set(k, v);
+    }
 
-    const rawUrl =
-      event.rawUrl ||
-      `${proto}://${host}${event.path}${toQueryString(event.queryStringParameters)}`;
+    // Body handling
+    let body = event.body;
+    if (body && event.isBase64Encoded) {
+      body = Buffer.from(body, "base64");
+    }
 
-    const normalizedEvent = { ...event, rawUrl };
-
-    const requestHandler = createRequestHandler({
-      build,
-      mode: process.env.NODE_ENV,
+    const request = new Request(url, {
+      method: event.httpMethod || "GET",
+      headers,
+      body: ["GET", "HEAD"].includes((event.httpMethod || "GET").toUpperCase())
+        ? undefined
+        : body,
     });
 
-    return await requestHandler(normalizedEvent, context);
+    const response = await remixHandler(request);
+
+    // Convert Fetch Response -> Netlify response
+    const resHeaders = {};
+    for (const [k, v] of response.headers.entries()) {
+      resHeaders[k] = v;
+    }
+
+    const text = await response.text();
+
+    return {
+      statusCode: response.status,
+      headers: resHeaders,
+      body: text,
+    };
   } catch (error) {
     console.error("Remix server error:", error);
     return {
@@ -45,4 +80,5 @@ export const handler = async (event, context) => {
     };
   }
 };
+
 
