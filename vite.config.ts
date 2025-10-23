@@ -4,7 +4,8 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   plugins: [remix(), tsconfigPaths()],
-  css: { postcss: "./postcss.config.js" },
+  // no css.postcss needed; Vite will pick up postcss.config.cjs
 });
+
 
 
