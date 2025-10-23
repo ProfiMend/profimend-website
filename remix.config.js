@@ -1,16 +1,9 @@
 /** @type {import('@remix-run/dev').AppConfig} */
 export default {
-  // ✅ Tell Remix to use Netlify serverless adapter
-  server: "@netlify/remix-adapter",
-
-  // ✅ Write the server bundle into Netlify’s internal functions folder
-  //    (this guarantees a function named `server`)
-  serverBuildPath: ".netlify/functions-internal/server.mjs",
-
+  server: "@netlify/remix-adapter", // ✅ Tells Remix to use Netlify serverless adapter
+  serverBuildPath: ".netlify/functions-internal/server.mjs", // ✅ Where to emit the function
   serverModuleFormat: "esm",
   ignoredRouteFiles: ["**/.*"],
-
-  // quiet future warnings; safe defaults
   future: {
     v3_fetcherPersist: true,
     v3_relativeSplatPath: true,
@@ -19,3 +12,4 @@ export default {
     v3_lazyRouteDiscovery: true,
   },
 };
+
