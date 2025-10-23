@@ -1,13 +1,11 @@
 [build]
   command = "npm run build"
-  publish = "build"
-
-# (Optional) If your client output is at build/client only, publish = "build/client" also works.
-# With the function wrapper, either is fine.
+  publish = "build/client"
 
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/server"
   status = 200
+
 
 
