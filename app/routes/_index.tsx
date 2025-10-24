@@ -1,109 +1,176 @@
-import * as React from "react";
+// app/routes/_index.tsx
 import { motion } from "framer-motion";
 import { DollarSign, BarChart3, Calculator } from "lucide-react";
 
-export default function Index() {
+export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white text-gray-800">
-      {/* Header */}
-      <header className="w-full">
-        <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
-          <div className="text-2xl font-bold text-blue-700">ProfiMend</div>
-          <nav className="hidden md:flex gap-6 text-sm">
-            <a href="#" className="hover:text-blue-700">
-              Features
-            </a>
-            <a href="#" className="hover:text-blue-700">
-              Pricing
-            </a>
-            <a href="#" className="hover:text-blue-700">
-              About
-            </a>
-            <a
-              href="https://YOUR-JETADMIN-URL"
-              className="text-orange-600 font-semibold"
-            >
-              Login
-            </a>
+    <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white text-slate-800">
+      {/* Top nav */}
+      <header className="sticky top-0 z-20 bg-white/70 backdrop-blur border-b border-slate-200/60">
+        <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-sky-100 ring-1 ring-sky-200">
+              <span className="h-3 w-3 rounded-full bg-sky-500" />
+            </span>
+            <span className="font-semibold text-slate-900">ProfiMend</span>
+          </div>
+          <nav className="hidden md:flex items-center gap-6 text-sm text-slate-600">
+            <a href="#features" className="hover:text-slate-900">Features</a>
+            <a href="#pricing" className="hover:text-slate-900">Pricing</a>
+            <a href="#security" className="hover:text-slate-900">Security</a>
+            <a href="#contact" className="hover:text-slate-900">Contact</a>
           </nav>
+          <div className="flex items-center gap-3">
+            <a href="/login" className="text-sm text-slate-600 hover:text-slate-900">Sign in</a>
+            <a
+              href="/signup"
+              className="rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-sky-700"
+            >
+              Start free
+            </a>
+          </div>
         </div>
       </header>
 
       {/* Hero */}
-      <section className="text-center py-24 bg-gradient-to-r from-blue-600 to-blue-400 text-white">
-        <motion.h1 className="text-5xl font-bold mb-4">
-          Smarter Financial Decisions for Small Businesses
-        </motion.h1>
-        <p className="text-lg max-w-2xl mx-auto mb-8">
-          AI-powered dashboards to price your products, forecast cash flow, and
-          grow confidently.
-        </p>
-        <a
-          href="https://YOUR-JETADMIN-URL"
-          className="inline-block bg-orange-500 hover:bg-orange-600 text-white text-lg px-8 py-4 rounded-2xl"
-        >
-          Get Started Free
-        </a>
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-600 via-sky-500 to-cyan-500" />
+        <svg className="absolute inset-0 opacity-20 mix-blend-overlay" viewBox="0 0 800 400" aria-hidden>
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0%" stopColor="white" />
+              <stop offset="100%" stopColor="transparent" />
+            </linearGradient>
+          </defs>
+          <rect width="800" height="400" fill="url(#g)" />
+        </svg>
+        <div className="relative mx-auto max-w-7xl px-6 py-24 text-center text-white">
+          <motion.h1
+            className="text-4xl md:text-6xl font-extrabold tracking-tight"
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Finance, reimagined — <span className="text-amber-200">beautifully simple</span>
+          </motion.h1>
+          <motion.p
+            className="mt-4 text-lg md:text-xl text-sky-50/90"
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            ProfiMend unites smart pricing, real cash flow visibility, and modern reporting in one intuitive space.
+          </motion.p>
+          <motion.div
+            className="mt-8 flex items-center justify-center gap-4"
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <a
+              href="/signup"
+              className="rounded-xl bg-white/95 text-sky-700 px-6 py-3 font-semibold shadow hover:bg-white"
+            >
+              Get Started Free
+            </a>
+            <a
+              href="/demo"
+              className="rounded-xl border border-white/70 px-6 py-3 font-semibold text-white hover:bg-white/10"
+            >
+              Watch demo
+            </a>
+          </motion.div>
+          <p className="mt-4 text-sm text-sky-50/80">No credit card required · Secure and private</p>
+        </div>
       </section>
 
-      {/* Features */}
-      <section
-        id="features"
-        className="py-24 max-w-7xl mx-auto px-8 grid md:grid-cols-3 gap-10"
-      >
-        <div className="shadow-xl border-t-4 border-blue-500 rounded-2xl p-10 text-center flex flex-col items-center justify-between min-h-[320px]">
-          <DollarSign className="w-10 h-10 mx-auto text-blue-500 mb-4" />
-          <h3 className="font-semibold text-2xl mb-3">Pricing Tool</h3>
-          <p className="text-lg leading-relaxed">
-            Find your perfect price point based on fixed and variable costs,
-            break-even, and competition.
-          </p>
-        </div>
-
-        <div className="shadow-xl border-t-4 border-orange-500 rounded-2xl p-10 text-center flex flex-col items-center justify-between min-h-[320px]">
-          <BarChart3 className="w-10 h-10 mx-auto text-orange-500 mb-4" />
-          <h3 className="font-semibold text-2xl mb-3">Cash Flow Forecast</h3>
-          <p className="text-lg leading-relaxed">
-            Track inflows and outflows, predict balance shortfalls, and
-            visualize your financial future.
-          </p>
-        </div>
-
-        <div className="shadow-xl border-t-4 border-blue-400 rounded-2xl p-10 text-center flex flex-col items-center justify-between min-h-[320px]">
-          <Calculator className="w-10 h-10 mx-auto text-blue-400 mb-4" />
-          <h3 className="font-semibold text-2xl mb-3">Budget vs Actuals</h3>
-          <p className="text-lg leading-relaxed">
-            Compare your goals and performance, and identify improvement areas
-            in real time.
-          </p>
+      {/* Feature cards */}
+      <section id="features" className="mx-auto max-w-7xl px-6 py-16">
+        <div className="grid gap-6 md:grid-cols-3">
+          <Feature
+            icon={<DollarSign className="h-5 w-5" />}
+            title="Pricing Tool"
+            color="border-sky-300"
+            text="Set profitable prices in seconds with cost + margin intelligence."
+          />
+          <Feature
+            icon={<BarChart3 className="h-5 w-5" />}
+            title="Cash Flow"
+            color="border-amber-300"
+            text="Forecast balances across 1–36 months with scenario tests."
+          />
+          <Feature
+            icon={<Calculator className="h-5 w-5" />}
+            title="Budget vs Actuals"
+            color="border-sky-300"
+            text="Track performance live from your transactions."
+          />
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-blue-50 text-center">
-        <h2 className="text-3xl font-bold mb-4 text-blue-700">
-          Ready to simplify your business finances?
-        </h2>
-        <p className="mb-8 text-gray-600">
-          Join ProfiMend and start managing your numbers with clarity and
-          confidence.
-        </p>
-        <a
-          href="https://YOUR-JETADMIN-URL"
-          className="inline-block bg-orange-500 hover:bg-orange-600 text-white text-lg px-8 py-4 rounded-2xl"
-        >
-          Create Free Account
-        </a>
+      <section className="mx-auto max-w-6xl px-6 pb-24">
+        <div className="rounded-3xl border border-slate-200 bg-white/70 p-10 text-center shadow-sm backdrop-blur">
+          <h2 className="text-2xl md:text-3xl font-semibold text-slate-900">
+            Build clarity around your numbers
+          </h2>
+          <p className="mt-2 text-slate-600">
+            Start a free workspace and explore the Pricing and Cash Flow tools in minutes.
+          </p>
+          <div className="mt-6 flex items-center justify-center gap-4">
+            <a
+              href="/signup"
+              className="rounded-xl bg-sky-600 px-5 py-3 font-semibold text-white shadow hover:bg-sky-700"
+            >
+              Create my workspace
+            </a>
+            <a
+              href="/contact"
+              className="rounded-xl border border-slate-300 px-5 py-3 font-semibold text-slate-700 hover:bg-slate-50"
+            >
+              Talk to us
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-10 bg-blue-600 text-white text-center">
-        <p className="text-sm">
-          © {new Date().getFullYear()} ProfiMend. All rights reserved.
-        </p>
+      <footer className="border-t border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-8 text-sm text-slate-500 flex items-center justify-between">
+          <span>© {new Date().getFullYear()} ProfiMend</span>
+          <div className="flex gap-4">
+            <a href="/privacy" className="hover:text-slate-700">Privacy</a>
+            <a href="/terms" className="hover:text-slate-700">Terms</a>
+          </div>
+        </div>
       </footer>
     </div>
   );
 }
+
+function Feature({
+  icon,
+  title,
+  text,
+  color,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  text: string;
+  color: string;
+}) {
+  return (
+    <div className={`rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 border-t-4 ${color}`}>
+      <div className="flex items-center gap-3 text-slate-900">
+        <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-sky-50 text-sky-600 ring-1 ring-sky-200">
+          {icon}
+        </div>
+        <h3 className="font-semibold">{title}</h3>
+      </div>
+      <p className="mt-3 text-slate-600">{text}</p>
+    </div>
+  );
+}
+
 
 
