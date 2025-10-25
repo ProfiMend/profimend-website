@@ -1,6 +1,6 @@
 // app/routes/_index.tsx
 import { motion } from "framer-motion";
-import { DollarSign, BarChart3, Calculator, ShieldCheck, Sparkles } from "lucide-react";
+import { DollarSign, BarChart3, Calculator } from "lucide-react";
 import ProfiMendLogo from "~/components/ProfiMendLogo";
 import Testimonials from "~/components/Testimonials";
 import DemoShowcase from "~/components/DemoShowcase";
@@ -15,22 +15,22 @@ function Feature({
   icon: React.ReactNode;
   title: string;
   text: string;
-  borderColor: string; // e.g. "border-sky-300"
-  tint: string;        // e.g. "bg-sky-50"
+  borderColor: string;
+  tint: string;
 }) {
   return (
     <motion.div
-      className={`rounded-3xl ${tint} p-8 shadow-sm ring-1 ring-slate-200 border-t-4 ${borderColor}`}
-      whileHover={{ y: -3, scale: 1.005 }}
+      className={`rounded-3xl ${tint} p-10 shadow-sm ring-1 ring-slate-200 border-t-4 ${borderColor} min-h-[280px]`}
+      whileHover={{ y: -4, scale: 1.008 }}
       transition={{ type: "spring", stiffness: 140, damping: 16 }}
     >
       <div className="flex items-center gap-4">
         <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white text-sky-600 ring-1 ring-slate-200">
           {icon}
         </div>
-        <h3 className="text-xl font-semibold text-slate-900">{title}</h3>
+        <h3 className="text-2xl font-semibold text-slate-900">{title}</h3>
       </div>
-      <p className="mt-4 text-lg leading-7 text-slate-700">{text}</p>
+      <p className="mt-5 text-lg leading-8 text-slate-700">{text}</p>
     </motion.div>
   );
 }
@@ -42,12 +42,10 @@ export default function HomePage() {
       <header className="sticky top-0 z-20 bg-white/70 backdrop-blur border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            {/* Your premium logo component */}
             <ProfiMendLogo className="h-7 w-7" withWordmark />
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm text-slate-600">
             <a href="#features" className="hover:text-slate-900">Features</a>
-            <a href="#security" className="hover:text-slate-900">Security</a>
             <a href="#customers" className="hover:text-slate-900">Customers</a>
             <a href="#contact" className="hover:text-slate-900">Contact</a>
           </nav>
@@ -103,87 +101,69 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* BIG DYNAMIC SHOWCASE (separate from hero) */}
+      {/* BIG DYNAMIC SHOWCASE */}
       <DemoShowcase />
 
-      {/* FEATURES — bigger blocks + title (consistent with testimonials) */}
-      <section id="features" className="mx-auto max-w-7xl px-6 py-16">
+      {/* FEATURES — bigger, taller cards */}
+      <section id="features" className="mx-auto max-w-7xl px-6 py-20">
         <div className="text-center">
-          <h2 className="text-2xl md:text-4xl font-semibold text-slate-900">
-            What you get—precision, visibility, control
+          <h2 className="text-3xl md:text-5xl font-semibold text-slate-900">
+            What you get — precision, visibility, control
           </h2>
-          <p className="mx-auto mt-3 max-w-3xl text-slate-600">
+          <p className="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
             Bigger tools, clearer decisions. Designed to make complex finance feel effortless.
           </p>
         </div>
 
-        <div className="mt-10 grid gap-8 md:grid-cols-3">
+        <div className="mt-12 grid gap-10 md:grid-cols-3">
           <Feature
-            icon={<DollarSign className="h-6 w-6" />}
+            icon={<DollarSign className="h-7 w-7" />}
             title="Pricing Tool"
             text="Set profitable prices in seconds with cost + margin intelligence. Give your sales team guardrails that protect margin."
             borderColor="border-sky-300"
             tint="bg-sky-50"
           />
           <Feature
-            icon={<BarChart3 className="h-6 w-6" />}
+            icon={<BarChart3 className="h-7 w-7" />}
             title="Cash Flow"
             text="Forecast balances across 1–36 months with scenario tests. Plan for hiring, seasonality, or expansion with confidence."
             borderColor="border-amber-300"
             tint="bg-amber-50/50"
           />
           <Feature
-            icon={<Calculator className="h-6 w-6" />}
+            icon={<Calculator className="h-7 w-7" />}
             title="Budget vs Actuals"
             text="Track performance live from your transactions. Spot gaps early and course-correct in days, not quarters."
             borderColor="border-cyan-300"
             tint="bg-cyan-50/70"
           />
         </div>
-
-        {/* Bonus skinny row for classiness */}
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <Feature
-            icon={<ShieldCheck className="h-6 w-6" />}
-            title="Security by default"
-            text="SOC 2–friendly controls, least-privilege architecture, and encrypted data—without configuration headaches."
-            borderColor="border-slate-300"
-            tint="bg-white"
-          />
-          <Feature
-            icon={<Sparkles className="h-6 w-6" />}
-            title="Modern UI your team enjoys"
-            text="Fast, frictionless interactions with tasteful motion. The product feels alive, not noisy."
-            borderColor="border-sky-200"
-            tint="bg-white"
-          />
-        </div>
       </section>
 
-      {/* TESTIMONIALS */}
+      {/* TESTIMONIALS — big carousel */}
       <section id="customers" className="bg-white/60">
         <Testimonials />
       </section>
 
-      {/* CTA */}
-      <section className="mx-auto max-w-6xl px-6 pb-24">
-        <div className="rounded-3xl border border-slate-200 bg-white/70 p-10 text-center shadow-sm backdrop-blur">
-          <h2 className="text-2xl md:text-3xl font-semibold text-slate-900">
+      {/* CTA — bigger */}
+      <section className="mx-auto max-w-6xl px-6 pb-28">
+        <div className="rounded-3xl border border-slate-200 bg-white/80 p-12 text-center shadow-sm backdrop-blur">
+          <h2 className="text-3xl md:text-4xl font-semibold text-slate-900">
             Build clarity around your numbers
           </h2>
-          <p className="mt-2 text-slate-600">
+          <p className="mt-3 text-lg text-slate-600">
             Start a free workspace and explore the Pricing and Cash Flow tools in minutes.
           </p>
-          <div className="mt-6 flex items-center justify-center gap-4">
+          <div className="mt-8 flex items-center justify-center gap-5">
             <a
               href="/signup"
-              className="rounded-xl bg-sky-600 px-6 py-3 font-semibold text-white shadow hover:bg-sky-700"
+              className="rounded-xl bg-sky-600 px-7 py-3 text-lg font-semibold text-white shadow hover:bg-sky-700"
             >
               Create my workspace
             </a>
             <a
               href="/contact"
-              className="rounded-xl border border-slate-300 px-6 py-3 font-semibold text-slate-700 hover:bg-slate-50"
+              className="rounded-xl border border-slate-300 px-7 py-3 text-lg font-semibold text-slate-700 hover:bg-slate-50"
             >
               Talk to us
             </a>
@@ -191,60 +171,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FOOTER (complete, tasteful) */}
+      {/* FOOTER */}
       <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-12 grid grid-cols-2 gap-8 md:grid-cols-4 text-sm">
-          <div>
-            <div className="font-semibold text-slate-900">Product</div>
-            <ul className="mt-3 space-y-2 text-slate-600">
-              <li><a href="#features" className="hover:text-slate-900">Features</a></li>
-              <li><a href="/pricing" className="hover:text-slate-900">Pricing</a></li>
-              <li><a href="/security" className="hover:text-slate-900">Security</a></li>
-              <li><a href="/changelog" className="hover:text-slate-900">Changelog</a></li>
-            </ul>
-          </div>
-          <div>
-            <div className="font-semibold text-slate-900">Company</div>
-            <ul className="mt-3 space-y-2 text-slate-600">
-              <li><a href="/about" className="hover:text-slate-900">About</a></li>
-              <li><a href="/careers" className="hover:text-slate-900">Careers</a></li>
-              <li><a href="/blog" className="hover:text-slate-900">Blog</a></li>
-              <li><a href="/contact" className="hover:text-slate-900">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <div className="font-semibold text-slate-900">Resources</div>
-            <ul className="mt-3 space-y-2 text-slate-600">
-              <li><a href="/docs" className="hover:text-slate-900">Docs</a></li>
-              <li><a href="/guides" className="hover:text-slate-900">Guides</a></li>
-              <li><a href="/support" className="hover:text-slate-900">Support</a></li>
-              <li><a href="/partners" className="hover:text-slate-900">Partners</a></li>
-            </ul>
-          </div>
-          <div>
-            <div className="font-semibold text-slate-900">Legal</div>
-            <ul className="mt-3 space-y-2 text-slate-600">
-              <li><a href="/privacy" className="hover:text-slate-900">Privacy</a></li>
-              <li><a href="/terms" className="hover:text-slate-900">Terms</a></li>
-              <li><a href="/dpa" className="hover:text-slate-900">DPA</a></li>
-              <li><a href="/security" className="hover:text-slate-900">Security</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="mx-auto max-w-7xl px-6 pb-8 text-slate-500 flex items-center justify-between">
+        <div className="mx-auto max-w-7xl px-6 pb-8 pt-6 text-slate-500 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <ProfiMendLogo className="h-5 w-5" />
             <span>© {new Date().getFullYear()} ProfiMend</span>
           </div>
-          <div className="text-sm">
-            Made for finance teams who care about clarity.
-          </div>
+          <div className="text-sm">Made for finance teams who care about clarity.</div>
         </div>
       </footer>
     </div>
   );
 }
+
 
 
 
