@@ -20,24 +20,24 @@ function Feature({
 }) {
   return (
     <motion.div
-      className={`rounded-3xl ${tint} p-10 shadow-sm ring-1 ring-slate-200 border-t-4 ${borderColor} min-h-[280px]`}
+      className={`rounded-3xl ${tint} p-12 shadow-sm ring-1 ring-slate-200 border-t-4 ${borderColor} min-h-[340px]`}
       whileHover={{ y: -4, scale: 1.008 }}
       transition={{ type: "spring", stiffness: 140, damping: 16 }}
     >
-      <div className="flex items-center gap-4">
-        <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white text-sky-600 ring-1 ring-slate-200">
+      <div className="flex items-center gap-5">
+        <div className="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-white text-sky-600 ring-1 ring-slate-200">
           {icon}
         </div>
-        <h3 className="text-2xl font-semibold text-slate-900">{title}</h3>
+        <h3 className="text-2xl md:text-3xl font-semibold text-slate-900">{title}</h3>
       </div>
-      <p className="mt-5 text-lg leading-8 text-slate-700">{text}</p>
+      <p className="mt-6 text-lg md:text-xl leading-8 text-slate-700">{text}</p>
     </motion.div>
   );
 }
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white text-slate-800">
+    <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white text-slate-800 flex flex-col">
       {/* Top nav */}
       <header className="sticky top-0 z-20 bg-white/70 backdrop-blur border-b border-slate-200/60">
         <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
@@ -101,11 +101,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* BIG DYNAMIC SHOWCASE */}
+      {/* BIG DYNAMIC SHOWCASE (slightly smaller now) */}
       <DemoShowcase />
 
-      {/* FEATURES — bigger, taller cards */}
-      <section id="features" className="mx-auto max-w-7xl px-6 py-20">
+      {/* FEATURES — larger */}
+      <section id="features" className="mx-auto max-w-7xl px-6 py-22">
         <div className="text-center">
           <h2 className="text-3xl md:text-5xl font-semibold text-slate-900">
             What you get — precision, visibility, control
@@ -117,21 +117,21 @@ export default function HomePage() {
 
         <div className="mt-12 grid gap-10 md:grid-cols-3">
           <Feature
-            icon={<DollarSign className="h-7 w-7" />}
+            icon={<DollarSign className="h-8 w-8" />}
             title="Pricing Tool"
             text="Set profitable prices in seconds with cost + margin intelligence. Give your sales team guardrails that protect margin."
             borderColor="border-sky-300"
             tint="bg-sky-50"
           />
           <Feature
-            icon={<BarChart3 className="h-7 w-7" />}
+            icon={<BarChart3 className="h-8 w-8" />}
             title="Cash Flow"
             text="Forecast balances across 1–36 months with scenario tests. Plan for hiring, seasonality, or expansion with confidence."
             borderColor="border-amber-300"
             tint="bg-amber-50/50"
           />
           <Feature
-            icon={<Calculator className="h-7 w-7" />}
+            icon={<Calculator className="h-8 w-8" />}
             title="Budget vs Actuals"
             text="Track performance live from your transactions. Spot gaps early and course-correct in days, not quarters."
             borderColor="border-cyan-300"
@@ -140,12 +140,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* TESTIMONIALS — big carousel */}
+      {/* TESTIMONIALS — marquee carousel */}
       <section id="customers" className="bg-white/60">
         <Testimonials />
       </section>
 
-      {/* CTA — bigger */}
+      {/* CTA — large */}
       <section className="mx-auto max-w-6xl px-6 pb-28">
         <div className="rounded-3xl border border-slate-200 bg-white/80 p-12 text-center shadow-sm backdrop-blur">
           <h2 className="text-3xl md:text-4xl font-semibold text-slate-900">
@@ -171,8 +171,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-slate-200 bg-white">
+      {/* FOOTER — kept persistent */}
+      <footer className="mt-auto border-t border-slate-200 bg-white" id="contact">
         <div className="mx-auto max-w-7xl px-6 pb-8 pt-6 text-slate-500 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <ProfiMendLogo className="h-5 w-5" />
@@ -184,8 +184,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-
-
-
-
