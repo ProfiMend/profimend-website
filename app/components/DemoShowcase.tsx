@@ -23,8 +23,8 @@ function Shell({
 }) {
   return (
     <motion.div
-      className={`rounded-3xl bg-white/95 p-8 shadow-2xl ring-1 ring-slate-200 ${className}`}
-      whileHover={{ y: -6, scale: 1.01 }}
+      className={`rounded-3xl bg-white/95 p-6 shadow-2xl ring-1 ring-slate-200 ${className}`}
+      whileHover={{ y: -5, scale: 1.008 }}
       transition={{ type: "spring", stiffness: 140, damping: 14 }}
     >
       <div className="flex items-center justify-between">
@@ -44,7 +44,7 @@ function Shell({
 
 function Field({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-4">
+    <div className="rounded-xl border border-slate-200 bg-white p-3">
       <div className="text-[11px] uppercase tracking-wide text-slate-500">
         {label}
       </div>
@@ -68,7 +68,7 @@ function Kpi({
 }) {
   return (
     <div
-      className={`rounded-xl border p-5 text-center ${
+      className={`rounded-xl border p-4 text-center ${
         highlight ? "border-amber-300 bg-amber-50" : "border-slate-200 bg-white"
       }`}
     >
@@ -76,7 +76,7 @@ function Kpi({
         {label}
       </div>
       <div
-        className={`text-2xl font-semibold ${
+        className={`text-xl md:text-2xl font-semibold ${
           highlight ? "text-amber-700" : "text-slate-900"
         }`}
       >
@@ -86,7 +86,6 @@ function Kpi({
   );
 }
 
-/** mock cash-flow data — feel free to replace with real data later */
 const cashData = [
   { m: "Apr", bal: 12000 },
   { m: "May", bal: 13800 },
@@ -103,27 +102,26 @@ export default function DemoShowcase() {
   return (
     <section className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-sky-50 via-cyan-50 to-white" />
-
-      <div className="relative mx-auto max-w-7xl px-6 py-20">
+      <div className="relative mx-auto max-w-7xl px-6 py-16">
         <div className="text-center">
           <h2 className="text-3xl md:text-5xl font-semibold text-slate-900">
             Explore the tools — live and intuitive
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
-            Bigger, clearer previews of the Pricing and Cash Flow experiences.
+            Bigger previews of Pricing and Cash Flow, tuned for clarity and speed.
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
-          {/* Quick Price (Demo) — taller + bigger type */}
+        <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
+          {/* Quick Price (Demo) — slightly smaller than before */}
           <Shell label="Quick Price (Demo)" badge="live preview">
-            <div className="mt-6 grid grid-cols-3 gap-5">
+            <div className="mt-5 grid grid-cols-3 gap-4">
               <Field label="Variable cost / unit" value="12.5" />
               <Field label="Target margin %" value="40" />
               <Field label="Units" value="120" />
             </div>
 
-            <div className="mt-6 grid grid-cols-4 gap-5">
+            <div className="mt-5 grid grid-cols-4 gap-4">
               <Kpi label="PRICE" value="$20.83" />
               <Kpi label="REVENUE" value="$2,500" />
               <Kpi label="VAR COST" value="$1,500" />
@@ -131,11 +129,11 @@ export default function DemoShowcase() {
             </div>
           </Shell>
 
-          {/* Cash Projection — now a proper chart */}
+          {/* Cash Projection — chart slightly shorter */}
           <Shell label="Cash Projection" badge="scenario">
-            <div className="mt-6 h-[320px] w-full rounded-2xl border border-slate-200 bg-white p-2">
+            <div className="mt-5 h-[280px] w-full rounded-2xl border border-slate-200 bg-white p-2">
               <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={cashData} margin={{ top: 16, right: 16, left: 0, bottom: 4 }}>
+                <AreaChart data={cashData} margin={{ top: 12, right: 16, left: 0, bottom: 4 }}>
                   <defs>
                     <linearGradient id="cashFill" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="0%" stopColor="#38bdf8" stopOpacity={0.35} />
@@ -156,21 +154,21 @@ export default function DemoShowcase() {
                     type="monotone"
                     dataKey="bal"
                     stroke="#0ea5e9"
-                    strokeWidth={2.6}
+                    strokeWidth={2.4}
                     fill="url(#cashFill)"
                   />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
 
-            <div className="mt-6 grid grid-cols-2 gap-5">
-              <div className="rounded-xl border border-slate-200 bg-white p-5">
+            <div className="mt-5 grid grid-cols-2 gap-4">
+              <div className="rounded-xl border border-slate-200 bg-white p-4">
                 <div className="text-xs text-slate-500">MRR</div>
-                <div className="text-2xl font-semibold text-slate-900">$8,240</div>
+                <div className="text-xl md:text-2xl font-semibold text-slate-900">$8,240</div>
               </div>
-              <div className="rounded-xl border border-slate-200 bg-white p-5">
+              <div className="rounded-xl border border-slate-200 bg-white p-4">
                 <div className="text-xs text-slate-500">BURN</div>
-                <div className="text-2xl font-semibold text-rose-600">-3,120</div>
+                <div className="text-xl md:text-2xl font-semibold text-rose-600">-3,120</div>
               </div>
             </div>
           </Shell>
@@ -179,4 +177,3 @@ export default function DemoShowcase() {
     </section>
   );
 }
-
