@@ -1,8 +1,8 @@
 // app/components/Testimonials.tsx
-import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 
-const TESTIMONIALS = [
+/** Three premium quotes (duplicate for seamless loop) */
+const ITEMS = [
   {
     text:
       "ProfiMend gave us pricing clarity in days, not months. Our gross margin improved 6% within a quarter.",
@@ -23,18 +23,20 @@ const TESTIMONIALS = [
   },
 ];
 
+function Card({ text, author, title }: { text: string; author: string; title: string }) {
+  return (
+    <div className="mx-3 w-[320px] md:w-[380px] shrink-0 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+      <p className="text-[15px] leading-7 text-slate-800">{text}</p>
+      <div className="mt-5 text-sm text-slate-600">
+        <span className="font-semibold text-slate-900">{author}</span> — {title}
+      </div>
+    </div>
+  );
+}
+
 export default function Testimonials() {
-  const [index, setIndex] = useState(0);
-
-  // auto-advance
-  useEffect(() => {
-    const id = setInterval(() => {
-      setIndex((i) => (i + 1) % TESTIMONIALS.length);
-    }, 5000);
-    return () => clearInterval(id);
-  }, []);
-
-  const t = TESTIMONIALS[index];
+  // duplicate list to make seamless loop
+  const loop = useMemo(() => [...ITEMS, ...ITEMS, ...ITEMS], []);
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
@@ -45,39 +47,40 @@ export default function Testimonials() {
         Real results from teams who review ProfiMend daily.
       </p>
 
-      <div className="relative mx-auto mt-12 max-w-4xl">
-        <div className="rounded-3xl border border-slate-200 bg-white p-10 shadow-2xl min-h-[260px] flex items-center">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.35 }}
-            >
-              <p className="text-xl leading-8 text-slate-800">{t.text}</p>
-              <div className="mt-6 text-base text-slate-600">
-                <span className="font-semibold text-slate-900">{t.author}</span> — {t.title}
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+      {/* Marquee */}
+      <div className="relative mt-10 overflow-hidden">
+        {/* gradient masks */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent" />
 
-        {/* Dots + Controls */}
-        <div className="mt-6 flex items-center justify-center gap-3">
-          {TESTIMONIALS.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIndex(i)}
-              className={`h-2.5 w-2.5 rounded-full ${
-                i === index ? "bg-sky-600" : "bg-slate-300 hover:bg-slate-400"
-              }`}
-              aria-label={`Slide ${i + 1}`}
-            />
+        <div
+          className="flex"
+          style={{
+            width: "max-content",
+            animation: "pm-marquee 28s linear infinite",
+          }}
+        >
+          {loop.map((t, i) => (
+            <Card key={i} {...t} />
           ))}
         </div>
+
+        {/* keyframes (scoped) */}
+        <style>
+          {`
+            @keyframes pm-marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            @media (min-width: 768px) {
+              @keyframes pm-marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-33.333%); } /* slower on desktop */
+              }
+            }
+          `}
+        </style>
       </div>
     </section>
   );
 }
-
