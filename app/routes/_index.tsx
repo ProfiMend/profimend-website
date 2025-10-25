@@ -101,10 +101,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* BIG DYNAMIC SHOWCASE (slightly smaller now) */}
+      {/* Dynamic showcase */}
       <DemoShowcase />
 
-      {/* FEATURES — larger */}
+      {/* FEATURES */}
       <section id="features" className="mx-auto max-w-7xl px-6 py-22">
         <div className="text-center">
           <h2 className="text-3xl md:text-5xl font-semibold text-slate-900">
@@ -140,12 +140,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* TESTIMONIALS — marquee carousel */}
-      <section id="customers" className="bg-white/60">
+      {/* TESTIMONIALS — same size blocks */}
+      <section className="bg-white/60">
         <Testimonials />
       </section>
 
-      {/* CTA — large */}
+      {/* CTA */}
       <section className="mx-auto max-w-6xl px-6 pb-28">
         <div className="rounded-3xl border border-slate-200 bg-white/80 p-12 text-center shadow-sm backdrop-blur">
           <h2 className="text-3xl md:text-4xl font-semibold text-slate-900">
@@ -171,14 +171,56 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FOOTER — kept persistent */}
-      <footer className="mt-auto border-t border-slate-200 bg-white" id="contact">
-        <div className="mx-auto max-w-7xl px-6 pb-8 pt-6 text-slate-500 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <ProfiMendLogo className="h-5 w-5" />
-            <span>© {new Date().getFullYear()} ProfiMend</span>
+      {/* FOOTER (full, visible) */}
+      <footer id="contact" className="mt-auto border-t border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-14">
+          <div className="grid gap-10 md:grid-cols-4">
+            <div>
+              <div className="flex items-center gap-2">
+                <ProfiMendLogo className="h-6 w-6" />
+                <span className="text-lg font-semibold text-slate-900">ProfiMend</span>
+              </div>
+              <p className="mt-4 max-w-xs text-slate-600">
+                Elegant finance tools for pricing, cash flow and performance — built for clarity.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-900">Product</h4>
+              <ul className="mt-3 space-y-2 text-slate-600">
+                <li><a href="#features" className="hover:text-slate-900">Features</a></li>
+                <li><a href="/pricing" className="hover:text-slate-900">Pricing</a></li>
+                <li><a href="/security" className="hover:text-slate-900">Security</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-900">Company</h4>
+              <ul className="mt-3 space-y-2 text-slate-600">
+                <li><a href="/about" className="hover:text-slate-900">About</a></li>
+                <li><a href="/careers" className="hover:text-slate-900">Careers</a></li>
+                <li><a href="/contact" className="hover:text-slate-900">Contact</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-900">Resources</h4>
+              <ul className="mt-3 space-y-2 text-slate-600">
+                <li><a href="/docs" className="hover:text-slate-900">Docs</a></li>
+                <li><a href="/blog" className="hover:text-slate-900">Blog</a></li>
+                <li><a href="/support" className="hover:text-slate-900">Support</a></li>
+              </ul>
+            </div>
           </div>
-          <div className="text-sm">Made for finance teams who care about clarity.</div>
+
+          <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-6 text-slate-500 md:flex-row">
+            <div>© {new Date().getFullYear()} ProfiMend. All rights reserved.</div>
+            <div className="space-x-4 text-sm">
+              <a href="/privacy" className="hover:text-slate-700">Privacy</a>
+              <a href="/terms" className="hover:text-slate-700">Terms</a>
+              <a href="/status" className="hover:text-slate-700">Status</a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
