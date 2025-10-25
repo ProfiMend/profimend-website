@@ -1,13 +1,42 @@
 // app/components/DemoShowcase.tsx
 import { motion } from "framer-motion";
+import {
+  AreaChart,
+  Area,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+} from "recharts";
 
-function Shell({ children, className = "" }: any) {
+function Shell({
+  children,
+  className = "",
+  label,
+  badge,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  label: string;
+  badge?: string;
+}) {
   return (
     <motion.div
-      className={`rounded-3xl bg-white/95 p-6 shadow-2xl ring-1 ring-slate-200 ${className}`}
-      whileHover={{ y: -4, scale: 1.01 }}
+      className={`rounded-3xl bg-white/95 p-8 shadow-2xl ring-1 ring-slate-200 ${className}`}
+      whileHover={{ y: -6, scale: 1.01 }}
       transition={{ type: "spring", stiffness: 140, damping: 14 }}
     >
+      <div className="flex items-center justify-between">
+        <div className="text-lg md:text-xl font-semibold text-slate-900">
+          {label}
+        </div>
+        {badge ? (
+          <div className="rounded-full bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700 ring-1 ring-sky-200">
+            {badge}
+          </div>
+        ) : null}
+      </div>
       {children}
     </motion.div>
   );
@@ -15,12 +44,14 @@ function Shell({ children, className = "" }: any) {
 
 function Field({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-3">
-      <div className="text-[10px] uppercase tracking-wide text-slate-500">{label}</div>
+    <div className="rounded-xl border border-slate-200 bg-white p-4">
+      <div className="text-[11px] uppercase tracking-wide text-slate-500">
+        {label}
+      </div>
       <input
         value={value}
         readOnly
-        className="mt-1 w-full rounded-md border border-slate-200 bg-slate-50 px-2 py-1 text-sm text-slate-700"
+        className="mt-1 w-full rounded-md border border-slate-200 bg-slate-50 px-2 py-1 text-base text-slate-800"
       />
     </div>
   );
@@ -37,13 +68,15 @@ function Kpi({
 }) {
   return (
     <div
-      className={`rounded-xl border p-4 text-center ${
+      className={`rounded-xl border p-5 text-center ${
         highlight ? "border-amber-300 bg-amber-50" : "border-slate-200 bg-white"
       }`}
     >
-      <div className="text-[11px] uppercase tracking-wide text-slate-500">{label}</div>
+      <div className="text-[11px] uppercase tracking-wide text-slate-500">
+        {label}
+      </div>
       <div
-        className={`text-xl font-semibold ${
+        className={`text-2xl font-semibold ${
           highlight ? "text-amber-700" : "text-slate-900"
         }`}
       >
@@ -53,39 +86,44 @@ function Kpi({
   );
 }
 
+/** mock cash-flow data — feel free to replace with real data later */
+const cashData = [
+  { m: "Apr", bal: 12000 },
+  { m: "May", bal: 13800 },
+  { m: "Jun", bal: 13100 },
+  { m: "Jul", bal: 14950 },
+  { m: "Aug", bal: 16100 },
+  { m: "Sep", bal: 15500 },
+  { m: "Oct", bal: 17250 },
+  { m: "Nov", bal: 18000 },
+  { m: "Dec", bal: 19150 },
+];
+
 export default function DemoShowcase() {
   return (
     <section className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-sky-50 via-cyan-50 to-white" />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-16">
+      <div className="relative mx-auto max-w-7xl px-6 py-20">
         <div className="text-center">
-          <h2 className="text-2xl md:text-4xl font-semibold text-slate-900">
-            Explore the tools—live and intuitive
+          <h2 className="text-3xl md:text-5xl font-semibold text-slate-900">
+            Explore the tools — live and intuitive
           </h2>
-          <p className="mx-auto mt-3 max-w-3xl text-slate-600">
-            Quick, delightful previews of the Pricing and Cash Flow experiences—no
-            setup required.
+          <p className="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
+            Bigger, clearer previews of the Pricing and Cash Flow experiences.
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
-          {/* Quick Price (Demo) */}
-          <Shell>
-            <div className="flex items-center justify-between">
-              <div className="text-base font-semibold text-slate-800">Quick Price (Demo)</div>
-              <div className="rounded-full bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700 ring-1 ring-sky-200">
-                live preview
-              </div>
-            </div>
-
-            <div className="mt-5 grid grid-cols-3 gap-4">
+        <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
+          {/* Quick Price (Demo) — taller + bigger type */}
+          <Shell label="Quick Price (Demo)" badge="live preview">
+            <div className="mt-6 grid grid-cols-3 gap-5">
               <Field label="Variable cost / unit" value="12.5" />
               <Field label="Target margin %" value="40" />
               <Field label="Units" value="120" />
             </div>
 
-            <div className="mt-5 grid grid-cols-4 gap-4">
+            <div className="mt-6 grid grid-cols-4 gap-5">
               <Kpi label="PRICE" value="$20.83" />
               <Kpi label="REVENUE" value="$2,500" />
               <Kpi label="VAR COST" value="$1,500" />
@@ -93,24 +131,46 @@ export default function DemoShowcase() {
             </div>
           </Shell>
 
-          {/* Cash Projection */}
-          <Shell>
-            <div className="flex items-center justify-between">
-              <div className="text-base font-semibold text-slate-800">Cash Projection</div>
-              <div className="rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-700 ring-1 ring-amber-200">
-                scenario
-              </div>
+          {/* Cash Projection — now a proper chart */}
+          <Shell label="Cash Projection" badge="scenario">
+            <div className="mt-6 h-[320px] w-full rounded-2xl border border-slate-200 bg-white p-2">
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={cashData} margin={{ top: 16, right: 16, left: 0, bottom: 4 }}>
+                  <defs>
+                    <linearGradient id="cashFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#38bdf8" stopOpacity={0.35} />
+                      <stop offset="100%" stopColor="#06b6d4" stopOpacity={0.05} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                  <XAxis dataKey="m" tick={{ fill: "#64748b" }} />
+                  <YAxis tick={{ fill: "#64748b" }} />
+                  <Tooltip
+                    contentStyle={{
+                      borderRadius: 12,
+                      borderColor: "#e2e8f0",
+                      boxShadow: "0 8px 24px rgba(15, 23, 42, 0.08)",
+                    }}
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="bal"
+                    stroke="#0ea5e9"
+                    strokeWidth={2.6}
+                    fill="url(#cashFill)"
+                  />
+                </AreaChart>
+              </ResponsiveContainer>
             </div>
 
-            <div className="mt-5 h-36 w-full rounded-2xl bg-gradient-to-r from-sky-200 via-sky-300 to-cyan-200" />
-            <div className="mt-5 grid grid-cols-2 gap-4">
-              <div className="rounded-xl border border-slate-200 bg-white p-4">
+            <div className="mt-6 grid grid-cols-2 gap-5">
+              <div className="rounded-xl border border-slate-200 bg-white p-5">
                 <div className="text-xs text-slate-500">MRR</div>
-                <div className="text-xl font-semibold text-slate-900">$8,240</div>
+                <div className="text-2xl font-semibold text-slate-900">$8,240</div>
               </div>
-              <div className="rounded-xl border border-slate-200 bg-white p-4">
+              <div className="rounded-xl border border-slate-200 bg-white p-5">
                 <div className="text-xs text-slate-500">BURN</div>
-                <div className="text-xl font-semibold text-rose-600">-3,120</div>
+                <div className="text-2xl font-semibold text-rose-600">-3,120</div>
               </div>
             </div>
           </Shell>
@@ -119,3 +179,4 @@ export default function DemoShowcase() {
     </section>
   );
 }
+
