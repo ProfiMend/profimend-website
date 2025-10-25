@@ -1,7 +1,6 @@
 // app/components/Testimonials.tsx
-import { useMemo } from "react";
+import { motion } from "framer-motion";
 
-/** Three premium quotes (duplicate for seamless loop) */
 const ITEMS = [
   {
     text:
@@ -11,76 +10,62 @@ const ITEMS = [
   },
   {
     text:
-      "The cash flow views are deceptively simple—and exactly what our board wanted to see every week.",
+      "The cash flow views are deceptively simple — and exactly what our board wanted to see every week.",
     author: "Noah Patel",
     title: "Founder, Octave Labs",
   },
   {
     text:
-      "Setup took minutes. Budget vs Actuals updates live from our transactions—no more spreadsheet gymnastics.",
+      "Setup took minutes. Budget vs Actuals updates live from our transactions — no more spreadsheet gymnastics.",
     author: "Mia Chen",
     title: "Head of Ops, River & Co.",
   },
 ];
 
-function Card({ text, author, title }: { text: string; author: string; title: string }) {
+function TestimonialCard({
+  text,
+  author,
+  title,
+}: {
+  text: string;
+  author: string;
+  title: string;
+}) {
   return (
-    <div className="mx-3 w-[320px] md:w-[380px] shrink-0 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-      <p className="text-[15px] leading-7 text-slate-800">{text}</p>
-      <div className="mt-5 text-sm text-slate-600">
+    <motion.div
+      className="rounded-3xl bg-white/95 p-12 shadow-sm ring-1 ring-slate-200 min-h-[340px] flex flex-col"
+      whileHover={{ y: -4, scale: 1.008 }}
+      transition={{ type: "spring", stiffness: 140, damping: 16 }}
+    >
+      <p className="text-lg md:text-xl leading-8 text-slate-800 flex-1">
+        “{text}”
+      </p>
+      <div className="mt-8 text-base md:text-lg text-slate-600">
         <span className="font-semibold text-slate-900">{author}</span> — {title}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 export default function Testimonials() {
-  // duplicate list to make seamless loop
-  const loop = useMemo(() => [...ITEMS, ...ITEMS, ...ITEMS], []);
-
   return (
-    <section className="mx-auto max-w-7xl px-6 py-20">
-      <h2 className="text-center text-3xl md:text-5xl font-semibold text-slate-900">
-        Loved by modern finance teams
-      </h2>
-      <p className="mt-4 text-center text-lg text-slate-600">
-        Real results from teams who review ProfiMend daily.
-      </p>
+    <section id="customers" className="mx-auto max-w-7xl px-6 py-22">
+      <div className="text-center">
+        <h2 className="text-3xl md:text-5xl font-semibold text-slate-900">
+          Loved by modern finance teams
+        </h2>
+        <p className="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
+          Real results from teams who review ProfiMend daily.
+        </p>
+      </div>
 
-      {/* Marquee */}
-      <div className="relative mt-10 overflow-hidden">
-        {/* gradient masks */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent" />
-
-        <div
-          className="flex"
-          style={{
-            width: "max-content",
-            animation: "pm-marquee 28s linear infinite",
-          }}
-        >
-          {loop.map((t, i) => (
-            <Card key={i} {...t} />
-          ))}
-        </div>
-
-        {/* keyframes (scoped) */}
-        <style>
-          {`
-            @keyframes pm-marquee {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
-            }
-            @media (min-width: 768px) {
-              @keyframes pm-marquee {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-33.333%); } /* slower on desktop */
-              }
-            }
-          `}
-        </style>
+      {/* Same sizing as “What you get” blocks */}
+      <div className="mt-12 grid gap-10 md:grid-cols-3">
+        {ITEMS.map((t, i) => (
+          <TestimonialCard key={i} {...t} />
+        ))}
       </div>
     </section>
   );
 }
+
