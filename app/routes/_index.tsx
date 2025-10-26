@@ -1,4 +1,3 @@
-// app/routes/_index.tsx
 import { motion } from "framer-motion";
 import { DollarSign, BarChart3, Calculator } from "lucide-react";
 import ProfiMendLogo from "~/components/ProfiMendLogo";
@@ -62,9 +61,9 @@ export default function HomePage() {
       </header>
 
       {/* HERO */}
-      <section className="relative">
+      <section className="relative mb-28">
         <div className="absolute inset-0 bg-gradient-to-r from-sky-600 via-sky-500 to-cyan-500" />
-        <div className="relative mx-auto max-w-7xl px-6 pt-18 pb-16 text-center text-white md:pt-20 md:pb-18">
+        <div className="relative mx-auto max-w-7xl px-6 pt-20 pb-20 text-center text-white">
           <motion.h1
             className="text-4xl md:text-6xl font-extrabold tracking-tight"
             initial={{ opacity: 0, y: 6 }}
@@ -101,11 +100,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Dynamic showcase */}
-      <DemoShowcase />
+      {/* Showcase */}
+      <section className="mb-28">
+        <DemoShowcase />
+      </section>
 
-      {/* FEATURES */}
-      <section id="features" className="mx-auto max-w-7xl px-6 py-22">
+      {/* Features */}
+      <section id="features" className="mx-auto max-w-7xl px-6 mb-28">
         <div className="text-center">
           <h2 className="text-3xl md:text-5xl font-semibold text-slate-900">
             What you get — precision, visibility, control
@@ -140,14 +141,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* TESTIMONIALS — same size blocks */}
-      <section className="bg-white/60">
+      {/* Testimonials */}
+      <section id="customers" className="bg-white/60 mb-28">
         <Testimonials />
       </section>
 
       {/* CTA */}
-      <section className="mx-auto max-w-6xl px-6 pb-28">
-        <div className="rounded-3xl border border-slate-200 bg-white/80 p-12 text-center shadow-sm backdrop-blur">
+      <section className="mx-auto max-w-6xl px-6 mb-28">
+        <div className="rounded-3xl border border-slate-200 bg-white/80 p-14 text-center shadow-sm backdrop-blur">
           <h2 className="text-3xl md:text-4xl font-semibold text-slate-900">
             Build clarity around your numbers
           </h2>
@@ -171,7 +172,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FOOTER (full, visible) */}
+      {/* Footer */}
       <footer id="contact" className="mt-auto border-t border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-6 py-14">
           <div className="grid gap-10 md:grid-cols-4">
