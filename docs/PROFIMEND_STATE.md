@@ -1,51 +1,19 @@
-# PROFIMEND – CANONICAL STATE (SOURCE OF TRUTH)
+```markdown
+# PROFIMEND STATE
 
-Version: 0.1
-Last updated: 2026-01-06
-Owner: PM
+## Current Status
+The current project status and progress updates.
 
-## 1) Product Definition
-- Product name: ProfiMend
-- One-line value prop:
-- Target customer:
-- Core modules:
-- Tech stack (locked): Airtable (DB), JetAdmin (app UI), Make.com (automation where needed), Remix website, GitHub + Netlify deploy
+### Completed Items
+- Memory automation is live via Netlify PM service (owner approved).
 
-## 2) Non-Negotiables
-- Financial correctness > speed
-- Minimal automation (JetAdmin formulas first, Make only when unavoidable)
-- One canonical state file, PM is the only editor
+### Ongoing Activities
+- [List ongoing activities here]
 
-## 3) Current Milestone
-- Milestone:
-- Success definition:
+### Backlog
+- [List other backlog items here]
+- Memory automation is live via Netlify PM service (owner approved).
 
-## 4) Backlog (Top 10)
-1. Create GitHub copy of PROFIMEND_STATE.md under /docs and keep it in sync
-2.
-3.
-
-## 5) Decision Log (Canonical)
-### D-0001 | 2026-01-06 | State system created
-- Status: Active | Supersedes: —
-- Decision: Use PROFIMEND_STATE.md as canonical memory. PM updates it.
-- Alternatives considered: Rely on chat history (rejected)
-- Reason: Avoid chat clog + ensure continuity
-- Impact: All agents must read this first
-- Owner: PM
-- Next review: —
-
-## 6) Idea Parking Lot (Non-canonical)
-### I-0001 | 2026-01-06 | (placeholder)
-- Type:
-- Why it might matter:
-- Risks / unknowns:
-- When to revisit:
-- Status: Parked
-
-## 7) Open Questions
-- Q1:
-- Q2:
-
-## 8) Glossary
-- Term → meaning
+## Future Plans
+- [Outline future plans and goals]
+```
