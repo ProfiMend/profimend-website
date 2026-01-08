@@ -22,7 +22,7 @@ Owner: PM
 
 ## 4) Backlog (Top 10)
 1. Create GitHub copy of PROFIMEND_STATE.md under /docs and keep it in sync
-2.
+2. Confirm GitHub AI → PR workflow is working (first successful run)
 3.
 
 ## 5) Decision Log (Canonical)
