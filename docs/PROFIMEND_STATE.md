@@ -1,7 +1,7 @@
 # PROFIMEND – CANONICAL STATE (SOURCE OF TRUTH)
 
-Version: 0.1
-Last updated: 2026-01-06
+Version: 0.1  
+Last updated: 2026-01-06  
 Owner: PM
 
 ## 1) Product Definition
@@ -21,8 +21,8 @@ Owner: PM
 - Success definition:
 
 ## 4) Backlog (Top 10)
-1. Create GitHub copy of PROFIMEND_STATE.md under /docs and keep it in sync
-2.
+1. Create GitHub copy of PROFIMEND_STATE.md under /docs and keep it in sync  
+2. Automate memory updates via issue comments (no manual workflow runs)  
 3.
 
 ## 5) Decision Log (Canonical)
