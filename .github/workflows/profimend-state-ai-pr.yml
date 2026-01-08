@@ -1,0 +1,45 @@
+name: ProfiMend State Update (AI -> PR)
+
+on:
+  workflow_dispatch:
+    inputs:
+      instruction:
+        description: "What should be updated in docs/PROFIMEND_STATE.md?"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update_state:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install OpenAI SDK
+        run: npm i openai@^4
+
+      - name: Run updater
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          INSTRUCTION: ${{ inputs.instruction }}
+        run: node .github/scripts/update-profimend-state.mjs
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "state: update PROFIMEND_STATE"
+          title: "state: update PROFIMEND_STATE"
+          body: |
+            Automated update to docs/PROFIMEND_STATE.md using OpenAI.
+            Instruction: ${{ inputs.instruction }}
+          branch: "ai/state-update"
+          delete-branch: true
