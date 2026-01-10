@@ -1,55 +1,39 @@
 ```markdown
-# PROFIMEND_FUNCTIONAL_DESIGN.md
+# ProfiMend State
 
-## Product Overview
+## Governance
+This document retains the current content and governance of the ProfiMend project. It serves as a central reference for the overall state of the project and its documentation.
 
-## Core Features
+## Linked Documents
+In support of multi-document memory mode for ProfiMend, the following independent tracked documents have been created:
 
-## User Flows
+1. **[PROFIMEND_FUNCTIONAL_DESIGN.md](./PROFIMEND_FUNCTIONAL_DESIGN.md)** – Contains:
+    - Product Overview
+    - Core Features
+    - User Flows
+    - UX Logic
 
-## UX Logic
-```
+2. **[PROFIMEND_REQUIREMENTS.md](./PROFIMEND_REQUIREMENTS.md)** – Contains:
+    - Business Requirements
+    - Functional Requirements
+    - Non-functional Requirements
+    - Integrations
 
-```markdown
-# PROFIMEND_REQUIREMENTS.md
+3. **[PROFIMEND_PROCESSES.md](./PROFIMEND_PROCESSES.md)** – Contains:
+    - Development Workflow
+    - Role Responsibilities
+    - Review & Approval Process
+    - Documentation Workflow
 
-## Business Requirements
+4. **[PROFIMEND_BACKLOG.md](./PROFIMEND_BACKLOG.md)** – Contains:
+    - Active Items
+    - Planned Items
+    - Completed Items
 
-## Functional Requirements
+5. **[PROFIMEND_NOTES.md](./PROFIMEND_NOTES.md)** – Contains:
+    - Meetings
+    - Decisions
+    - Future Considerations
 
-## Non-functional Requirements
-
-## Integrations
-```
-
-```markdown
-# PROFIMEND_PROCESSES.md
-
-## Development Workflow
-
-## Role Responsibilities
-
-## Review & Approval Process
-
-## Documentation Workflow
-```
-
-```markdown
-# PROFIMEND_BACKLOG.md
-
-## Active Items
-
-## Planned Items
-
-## Completed Items
-```
-
-```markdown
-# PROFIMEND_NOTES.md
-
-## Meetings
-
-## Decisions
-
-## Future Considerations
+Each document has been created as a separate canonical file within the repository and is linked under the governance of the ProfiMend project.
 ```
