@@ -1,0 +1,14 @@
+name: Backup ProfiMend Docs
+on:
+  push:
+    paths:
+      - 'docs/PROFIMEND_*.md'
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: mkdir -p backups && cp docs/PROFIMEND_*.md backups/$(date +'%Y-%m-%d_%H-%M-%S')_backup.md
+      - uses: EndBug/add-and-commit@v9
+        with:
+          message: "Auto-backup before memory update"
