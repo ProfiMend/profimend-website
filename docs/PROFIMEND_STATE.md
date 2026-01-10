@@ -1,39 +1,22 @@
 ```markdown
-# ProfiMend State
+# ProfiMend Governance
 
-## Governance
-This document retains the current content and governance of the ProfiMend project. It serves as a central reference for the overall state of the project and its documentation.
+## Controlled Mediated Update Model
 
-## Linked Documents
-In support of multi-document memory mode for ProfiMend, the following independent tracked documents have been created:
+### Protocol Details
 
-1. **[PROFIMEND_FUNCTIONAL_DESIGN.md](./PROFIMEND_FUNCTIONAL_DESIGN.md)** – Contains:
-    - Product Overview
-    - Core Features
-    - User Flows
-    - UX Logic
+1. All changes to canonical documents (PROFIMEND_STATE.md and others) must follow the mediated process.
+2. The PM must always perform a memoryRead before any change, summarize or extract the relevant section, and await Owner approval.
+3. Updates can include Add, Edit, or Delete actions, but each must be explicitly approved by the Owner.
+4. Before any update, the current document version is snapshotted for rollback safety.
+5. Every change must create or update a [Change Log] section with timestamp, type of change, and actor (Owner/PM).
+6. No updates may occur automatically or without verified Owner confirmation.
+7. Existing content must never be overwritten silently; only the approved record or section may be modified.
 
-2. **[PROFIMEND_REQUIREMENTS.md](./PROFIMEND_REQUIREMENTS.md)** – Contains:
-    - Business Requirements
-    - Functional Requirements
-    - Non-functional Requirements
-    - Integrations
+This protocol applies to all canonical documents under /docs and replaces prior memory update practices.
 
-3. **[PROFIMEND_PROCESSES.md](./PROFIMEND_PROCESSES.md)** – Contains:
-    - Development Workflow
-    - Role Responsibilities
-    - Review & Approval Process
-    - Documentation Workflow
-
-4. **[PROFIMEND_BACKLOG.md](./PROFIMEND_BACKLOG.md)** – Contains:
-    - Active Items
-    - Planned Items
-    - Completed Items
-
-5. **[PROFIMEND_NOTES.md](./PROFIMEND_NOTES.md)** – Contains:
-    - Meetings
-    - Decisions
-    - Future Considerations
-
-Each document has been created as a separate canonical file within the repository and is linked under the governance of the ProfiMend project.
+## Change Log
+- **Timestamp:** [YYYY-MM-DD HH:MM:SS]
+- **Type of Change:** Adopted Controlled Mediated Update Model
+- **Actor:** PM
 ```
