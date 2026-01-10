@@ -1,22 +1,35 @@
 ```markdown
-# ProfiMend Governance
+# ProfiMend State Documentation
 
-## Controlled Mediated Update Model
+## Optimal Safe Update System for ProfiMend Memory Governance
 
-### Protocol Details
+In our effort to ensure safe and reliable memory governance for ProfiMend, we have adopted the following protocol:
 
-1. All changes to canonical documents (PROFIMEND_STATE.md and others) must follow the mediated process.
-2. The PM must always perform a memoryRead before any change, summarize or extract the relevant section, and await Owner approval.
-3. Updates can include Add, Edit, or Delete actions, but each must be explicitly approved by the Owner.
-4. Before any update, the current document version is snapshotted for rollback safety.
-5. Every change must create or update a [Change Log] section with timestamp, type of change, and actor (Owner/PM).
-6. No updates may occur automatically or without verified Owner confirmation.
-7. Existing content must never be overwritten silently; only the approved record or section may be modified.
+1. **GitHub SHA Check**  
+   All memory updates must include the file’s current SHA. If the file has changed since the last read, GitHub will reject the write, preventing any accidental overwrites.
 
-This protocol applies to all canonical documents under /docs and replaces prior memory update practices.
+2. **Merge Logic**  
+   Updates must merge new content into the existing file. Only the specified section (identified by markers such as ## [Section]) may be modified. All other content remains untouched.
+
+3. **Backup System**  
+   Before any update, the current document version must be backed up with a timestamped filename in `/backups/`. This ensures instant rollback if needed.
+
+4. **Conflict Handling**  
+   If a SHA mismatch occurs, the system must re-read the latest file, reapply the intended merge, and seek Owner confirmation before retrying.
+
+5. **Change Log**  
+   Each update must append an entry under [Change Log] with timestamp, change type (Add/Edit/Delete), and actor (Owner/PM).
+
+6. **Controlled Mediated Update Model**  
+   The controlled mediated update model remains active: all changes require a prior read, Owner confirmation, and logged execution.
+
+7. **Applicability**  
+   This system applies to all canonical documents under `/docs` and replaces prior update mechanisms.
 
 ## Change Log
-- **Timestamp:** [YYYY-MM-DD HH:MM:SS]
-- **Type of Change:** Adopted Controlled Mediated Update Model
-- **Actor:** PM
+- [Timestamp] - Add/Edit/Delete by Owner/PM
+
+---
+
+By adopting this Optimal Safe Update System, we aim to permanently eliminate the risk of overwrites while maintaining a safe, traceable, and reversible document update process.
 ```
