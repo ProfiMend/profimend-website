@@ -1,5 +1,5 @@
 ```markdown
-# docs/PROFIMEND_FUNCTIONAL_DESIGN.md
+# PROFIMEND_FUNCTIONAL_DESIGN.md
 
 ## Product Overview
 
@@ -11,7 +11,7 @@
 ```
 
 ```markdown
-# docs/PROFIMEND_REQUIREMENTS.md
+# PROFIMEND_REQUIREMENTS.md
 
 ## Business Requirements
 
@@ -23,7 +23,7 @@
 ```
 
 ```markdown
-# docs/PROFIMEND_PROCESSES.md
+# PROFIMEND_PROCESSES.md
 
 ## Development Workflow
 
@@ -35,7 +35,7 @@
 ```
 
 ```markdown
-# docs/PROFIMEND_BACKLOG.md
+# PROFIMEND_BACKLOG.md
 
 ## Active Items
 
@@ -45,7 +45,7 @@
 ```
 
 ```markdown
-# docs/PROFIMEND_NOTES.md
+# PROFIMEND_NOTES.md
 
 ## Meetings
 
