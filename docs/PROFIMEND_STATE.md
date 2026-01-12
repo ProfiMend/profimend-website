@@ -41,6 +41,7 @@ By adopting this Optimal Safe Update System, we aim to permanently eliminate the
 
 
 - Test: memory-search + memory-edit flow (UPDATED).
+- Create and define orchestrator role.
 ## Notes
 
 
