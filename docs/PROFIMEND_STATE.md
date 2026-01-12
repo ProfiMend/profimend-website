@@ -33,3 +33,16 @@ In our effort to ensure safe and reliable memory governance for ProfiMend, we ha
 
 By adopting this Optimal Safe Update System, we aim to permanently eliminate the risk of overwrites while maintaining a safe, traceable, and reversible document update process.
 ```
+
+## Decisions
+
+
+## Backlog
+
+
+- Test: memory-search + memory-edit flow.
+## Notes
+
+
+## Completed Items
+
