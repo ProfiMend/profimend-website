@@ -37,6 +37,7 @@ By adopting this Optimal Safe Update System, we aim to permanently eliminate the
 ## Decisions
 
 
+- PM will hold daily standups at 10am MT for 15 minutes to gather progress updates.
 ## Backlog
 
 
