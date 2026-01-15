@@ -48,3 +48,5 @@ By adopting this Optimal Safe Update System, we aim to permanently eliminate the
 
 ## Completed Items
 
+
+- Created PR #5: added HTML comment at the top of app/routes/_index.tsx.
