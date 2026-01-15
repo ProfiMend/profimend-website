@@ -62,7 +62,7 @@ export default function HomePage() {
       </header>
 
       {/* HERO */}
-      <section className="relative mb-28">
+      <section className="relative mb-12">
         <div className="absolute inset-0 bg-gradient-to-r from-sky-600 via-sky-500 to-cyan-500" />
         <div className="relative mx-auto max-w-7xl px-6 pt-20 pb-20 text-center text-white">
           <motion.h1
@@ -99,6 +99,11 @@ export default function HomePage() {
             No credit card required · Secure and private
           </p>
         </div>
+      </section>
+
+      {/* Trusted by small businesses */}
+      <section className="mb-28 text-center">
+        <p className="text-lg md:text-xl font-medium text-slate-600">Trusted by small businesses</p>
       </section>
 
       {/* Showcase */}
