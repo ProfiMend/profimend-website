@@ -1,4 +1,4 @@
-<!-- webdev test edit -->
+// webdev test edit
 import { motion } from "framer-motion";
 import { DollarSign, BarChart3, Calculator } from "lucide-react";
 import ProfiMendLogo from "~/components/ProfiMendLogo";
