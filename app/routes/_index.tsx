@@ -101,9 +101,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Trusted by small businesses */}
+      {/* Trusted by small and big businesses */}
       <section className="mb-28 text-center">
-        <p className="text-lg md:text-xl font-medium text-slate-600">Trusted by small businesses</p>
+        <p className="text-lg md:text-xl font-medium text-slate-600">Trusted by small as well as big businesses</p>
       </section>
 
       {/* Showcase */}
