@@ -44,6 +44,7 @@ By adopting this Optimal Safe Update System, we aim to permanently eliminate the
 - Test: memory-search + memory-edit flow (UPDATED).
 - Create and define orchestrator role.
 - Enable auto-merge only when checks pass. Restrict to: non-prod branches, low-risk changes, or after PM approval.
+- Create 'Trusted by small businesses' section under the hero on homepage.
 ## Notes
 
 
