@@ -45,6 +45,7 @@ export default function HomePage() {
             <ProfiMendLogo className="h-7 w-7" withWordmark />
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm text-slate-600">
+            <a href="/test" className="hover:text-slate-900">Test</a>
             <a href="#features" className="hover:text-slate-900">Features</a>
             <a href="#customers" className="hover:text-slate-900">Customers</a>
             <a href="#contact" className="hover:text-slate-900">Contact</a>
