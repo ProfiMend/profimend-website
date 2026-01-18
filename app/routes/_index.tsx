@@ -47,7 +47,8 @@ export default function HomePage() {
           <nav className="hidden md:flex items-center gap-6 text-sm text-slate-600">
             <a href="#features" className="hover:text-slate-900">Features</a>
             <a href="#customers" className="hover:text-slate-900">Customers</a>
-            <a href="#contact" className="hover:text-slate-900">Contact</a>
+            <a href="/pricing" className="hover:text-slate-900">Pricing</a>
+      <a href="#contact" className="hover:text-slate-900">Contact</a>
           </nav>
           <div className="flex items-center gap-3">
             <a href="/login" className="text-sm text-slate-600 hover:text-slate-900">Sign in</a>
