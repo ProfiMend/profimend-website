@@ -57,7 +57,7 @@ export default function HomePage() {
   </div>
 </div>
             <a href="#customers" className="hover:text-slate-900">Customers</a>
-            <a href="#contact" className="hover:text-slate-900">Contact</a>
+            <a href="/contact" className="hover:text-slate-900">Contact</a>
           </nav>
           <div className="flex items-center gap-3">
             <a href="/login" className="text-sm text-slate-600 hover:text-slate-900">Sign in</a>
