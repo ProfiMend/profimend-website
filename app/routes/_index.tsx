@@ -56,6 +56,7 @@ export default function HomePage() {
     <a href="#budget" className="block px-4 py-2 text-slate-600 hover:bg-slate-50 hover:text-slate-900">Budget</a>
   </div>
 </div>
+            <a href="/pricing" className="hover:text-slate-900">Pricing</a>
             <a href="#customers" className="hover:text-slate-900">Customers</a>
             <a href="#contact" className="hover:text-slate-900">Contact</a>
           </nav>
