@@ -51,7 +51,7 @@ export default function HomePage() {
     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
   </button>
   <div className="absolute left-0 mt-2 hidden group-hover:block bg-white border border-slate-200 rounded-xl shadow-lg w-40 py-2 z-20">
-    <a href="#cashflow" className="block px-4 py-2 text-slate-600 hover:bg-slate-50 hover:text-slate-900">Cashflow</a>
+    <a href="/cashflow" onClick={(e)=>e.stopPropagation()} className="block px-4 py-2 text-slate-600 hover:bg-slate-50 hover:text-slate-900">Cashflow</a>
     <a href="#pricing" className="block px-4 py-2 text-slate-600 hover:bg-slate-50 hover:text-slate-900">Pricing Tool</a>
     <a href="#budget" className="block px-4 py-2 text-slate-600 hover:bg-slate-50 hover:text-slate-900">Budget</a>
   </div>
