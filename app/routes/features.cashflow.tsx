@@ -62,7 +62,7 @@ export default function CashflowFeature() {
         </Card>
       </div>
 
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}>
+      <motion.div className="mt-16 rounded-3xl bg-sky-50 p-10 text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}>
         <Link to="/register">
           <Button size="lg" className="rounded-2xl px-8 py-4 text-lg font-medium">
             Register to Start Using Cashflow
