@@ -19,7 +19,15 @@ export default function ContactPage() {
 
       {/* Form card */}
       <div className="w-full max-w-lg bg-white/80 backdrop-blur rounded-3xl border border-slate-200 shadow-sm p-10 relative z-10">
-        <h1 className="text-3xl md:text-4xl font-semibold text-slate-900 mb-6 text-center">Contact Us</h1>
+        <h1 className="text-3xl md:text-4xl font-semibold text-blue-800 mb-6 text-center">Contact Us</h1>
+        <Form
+          method="post"
+          onSubmit={(e) => {
+            e.preventDefault();
+            setSubmitted(true);
+          }}
+          className="space-y-5"
+        >"text-3xl md:text-4xl font-semibold text-slate-900 mb-6 text-center">Contact Us</h1>
         <Form
           method="post"
           onSubmit={(e) => {
