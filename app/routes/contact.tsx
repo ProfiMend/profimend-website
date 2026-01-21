@@ -43,7 +43,12 @@ export default function ContactPage() {
           <button type="submit" className="w-full rounded-xl bg-sky-600 text-white font-semibold py-3 hover:bg-sky-700 transition">Send Message</button>
         </Form>
         {/* Back to Home button */}
-        <a href="/" className="block text-center w-full mt-2 rounded-xl bg-slate-100 text-slate-700 font-semibold py-2 hover:bg-slate-200 transition">Back to Home</a>\n        <a href="/" className="block text-center w-full mt-4 rounded-xl border-2 border-blue-800 text-blue-800 font-semibold py-3 hover:bg-blue-800 hover:text-white transition">Back to Home</a>
+        <a
+  href="/"
+  className="block text-center w-full mt-2 rounded-xl bg-slate-100 text-slate-700 font-semibold py-2 hover:bg-slate-200 transition"
+>
+  Back to Home
+</a>
       </div>
     </div>
   );
