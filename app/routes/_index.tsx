@@ -45,7 +45,7 @@ export default function HomePage() {
             <ProfiMendLogo className="h-7 w-7" withWordmark />
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm text-slate-600">
-            <div className="relative group">
+            <div className="relative group">\n  <button className="hover:text-slate-900 flex items-center gap-1 focus:outline-none">\n    Features\n    <svg xmlns='http://www.w3.org/2000/svg' className='h-4 w-4 transition-transform group-hover:rotate-180 duration-200' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M19 9l-7 7-7-7' /></svg>\n  </button>\n  <motion.div initial={{ opacity: 0, y: -4 }} whileHover={{ opacity: 1, y: 0 }} transition={{ duration: 0.18, ease: 'easeOut' }} className='absolute left-0 mt-2 hidden group-hover:block bg-white border border-slate-200 rounded-xl shadow-lg w-44 py-2 z-20'>\n    <a href='/cashflow' className='block px-4 py-2 text-slate-600 hover:bg-slate-50 hover:text-slate-900'>Cashflow</a>\n    <a href='#pricing' className='block px-4 py-2 text-slate-600 hover:bg-slate-50 hover:text-slate-900'>Pricing Tool</a>\n    <a href='#budget' className='block px-4 py-2 text-slate-600 hover:bg-slate-50 hover:text-slate-900'>Budget</a>\n  </motion.div>
   <button className="hover:text-slate-900 flex items-center gap-1 focus:outline-none" onClick={(e) => e.currentTarget.nextSibling?.classList.toggle('hidden')}>
     Features
     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
