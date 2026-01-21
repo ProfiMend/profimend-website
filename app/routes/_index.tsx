@@ -200,7 +200,7 @@ export default function HomePage() {
             <div>
               <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-900">Product</h4>
               <ul className="mt-3 space-y-2 text-slate-600">
-                <li><a href="#features" className="hover:text-slate-900">Features</a></li>
+                <!-- removed Features footer link -->
                 <li><a href="/pricing" className="hover:text-slate-900">Pricing</a></li>
                 <li><a href="/security" className="hover:text-slate-900">Security</a></li>
               </ul>
