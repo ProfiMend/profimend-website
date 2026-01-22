@@ -86,7 +86,7 @@ export default function HomePage() {
                 >
                   Budget
                 </a>
-              </motion.div>
+              </div>
             </div>
 
             <a href="#customers" className="hover:text-slate-900">Customers</a>
