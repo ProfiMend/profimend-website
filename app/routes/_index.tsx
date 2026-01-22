@@ -47,7 +47,19 @@ export default function HomePage() {
 
           {/* --- FIXED FEATURES DROPDOWN --- */}
           <nav className="hidden md:flex items-center gap-6 text-sm text-slate-600">
-            <div className="relative group">
+            const [featuresOpen, setFeaturesOpen] = useState(false);
+let closeTimeout: NodeJS.Timeout;
+
+<div
+  className="relative"
+  onMouseEnter={() => {
+    clearTimeout(closeTimeout);
+    setFeaturesOpen(true);
+  }}
+  onMouseLeave={() => {
+    closeTimeout = setTimeout(() => setFeaturesOpen(false), 120);
+  }}
+>
               <button className="hover:text-slate-900 flex items-center gap-1 focus:outline-none">
                 Features
                 <svg
