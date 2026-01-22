@@ -27,7 +27,7 @@ function Feature({
       <div className="flex items-center gap-5">
         <div className="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-white text-sky-600 ring-1 ring-slate-200">
           {icon}
-        </div>
+        </motion.div>
         <h3 className="text-2xl md:text-3xl font-semibold text-slate-900">{title}</h3>
       </div>
       <p className="mt-6 text-lg md:text-xl leading-8 text-slate-700">{text}</p>
