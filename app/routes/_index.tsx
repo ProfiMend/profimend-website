@@ -31,7 +31,7 @@ function Feature({
         <h3 className="text-2xl md:text-3xl font-semibold text-slate-900">{title}</h3>
       </div>
       <p className="mt-6 text-lg md:text-xl leading-8 text-slate-700">{text}</p>
-    </motion.div>
+    </div>
   );
 }
 
