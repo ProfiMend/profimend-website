@@ -35,7 +35,11 @@ function Feature({
   );
 }
 
+import React, { useState } from 'react';
+
 export default function HomePage() {
+  const [featuresOpen, setFeaturesOpen] = useState(false);
+  let closeTimeout: NodeJS.Timeout;
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white text-slate-800 flex flex-col">
       {/* Top nav */}
