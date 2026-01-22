@@ -68,7 +68,7 @@ export default function HomePage() {
 
               <motion.div
                 initial={{ opacity: 0, y: -4 }}
-                whileHover={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.18, ease: "easeOut" }}
                 className="absolute left-0 mt-2 hidden group-hover:block bg-white border border-slate-200 rounded-xl shadow-lg w-44 py-2 z-20"
               >
