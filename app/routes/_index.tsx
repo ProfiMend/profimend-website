@@ -70,7 +70,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: -4 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.18, ease: "easeOut" }}
-                className="absolute left-0 mt-2 hidden group-hover:block bg-white border border-slate-200 rounded-xl shadow-lg w-44 py-2 z-20"
+                className="absolute left-0 mt-1 opacity-0 group-hover:opacity-100 group-hover:visible invisible bg-white border border-slate-200 rounded-xl shadow-lg w-44 py-2 z-20 transition-opacity duration-150 pointer-events-none group-hover:pointer-events-auto" onMouseEnter={(e) => e.currentTarget.classList.add('!opacity-100', '!visible')} onMouseLeave={(e) => e.currentTarget.classList.remove('!opacity-100', '!visible')}
               >
                 <a
                   href="/cashflow"
