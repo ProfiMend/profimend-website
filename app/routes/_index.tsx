@@ -65,6 +65,19 @@ export default function HomePage() {
                   />
                 </svg>
               </button>
+{featuresOpen && (
+  <motion.div
+    initial={{ opacity: 0, y: -4 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -4 }}
+    transition={{ duration: 0.18, ease: 'easeOut' }}
+    className="absolute left-0 mt-2 bg-white border border-slate-200 rounded-xl shadow-lg w-44 py-2 z-20"
+  >
+    <a href="/cashflow" className="block px-4 py-2 text-slate-600 hover:bg-slate-50 hover:text-slate-900">Cashflow</a>
+    <a href="#pricing" className="block px-4 py-2 text-slate-600 hover:bg-slate-50 hover:text-slate-900">Pricing Tool</a>
+    <a href="#budget" className="block px-4 py-2 text-slate-600 hover:bg-slate-50 hover:text-slate-900">Budget</a>
+  </motion.div>
+)
 
               <motion.div
                 initial={{ opacity: 0, y: -4 }}
