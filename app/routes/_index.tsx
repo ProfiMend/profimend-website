@@ -29,7 +29,7 @@ function Feature({
           {icon}
         </motion.div>
         <h3 className="text-2xl md:text-3xl font-semibold text-slate-900">{title}</h3>
-      </div>
+      </motion.div>
       <p className="mt-6 text-lg md:text-xl leading-8 text-slate-700">{text}</p>
     </div>
   );
