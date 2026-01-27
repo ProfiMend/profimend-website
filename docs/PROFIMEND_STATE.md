@@ -38,6 +38,7 @@ By adopting this Optimal Safe Update System, we aim to permanently eliminate the
 
 
 - PM will hold daily standups at 10am MT for 15 minutes to gather progress updates.
+- Final architecture validated: Netlify project 'profimend' deploys from profimend-website. Netlify project 'ephemeral-daffodil-808cfb' deploys from profimend-pm-service and acts as PM service.
 ## Backlog
 
 
