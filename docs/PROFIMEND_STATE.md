@@ -48,6 +48,7 @@ By adopting this Optimal Safe Update System, we aim to permanently eliminate the
 - Enable auto-merge only when checks pass. Restrict to: non-prod branches, low-risk changes, or after PM approval.
 - Create 'Trusted by small businesses' section under the hero on homepage.
 - Enforce approval token rule for WebDev apply step to standardize and clarify approval tokens.
+- Document all webhooks in JetAdmin.
 ## Notes
 
 
